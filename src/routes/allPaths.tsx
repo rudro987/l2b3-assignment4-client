@@ -26,6 +26,11 @@ export const allPaths = [
     element: <ContactUs />,
   },
   {
+    name: "Product Management",
+    path: "product-management",
+    element: <ProductManagement />,
+  },
+  {
     name: "Cart",
     path: "cart",
     element: "cart",
@@ -34,27 +39,5 @@ export const allPaths = [
     name: "Checkout",
     path: "checkout",
     element: "checkout",
-  },
-  {
-    name: "Product Management",
-    path: "product-management",
-    element: <ProductManagement />,
-    children: [
-      {
-        name: "All Products",
-        path: "product-management/products",
-        element: "all products",
-      },
-      {
-        name: "Add Product",
-        path: "product-management/add-product",
-        element: "add products",
-      },
-      {
-        name: "Cart items",
-        path: "product-management/cart-items",
-        element: "cart items",
-      },
-    ],
   },
 ];

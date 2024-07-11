@@ -8,12 +8,10 @@ export type TRoute = {
 export type TMenuItems = {
     name: string;
     path: string;
-    children?: TMenuItems[]
 }
 
 export type TPath = {
     name: string;
     path?: string;
     element?: ReactNode;
-    children?: TPath[];
 }
