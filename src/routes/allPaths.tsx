@@ -1,4 +1,6 @@
 import AboutUs from "../pages/AboutUs/AboutUs";
+import Cart from "../pages/Cart/Cart";
+import Checkout from "../pages/Checkout/Checkout";
 import ContactUs from "../pages/ContactUs/ContactUs";
 import Home from "../pages/Home/Home";
 import ProductManagement from "../pages/ProductManagement/ProductManagement";
@@ -33,11 +35,11 @@ export const allPaths = [
   {
     name: "Cart",
     path: "cart",
-    element: "cart",
+    element: <Cart />,
   },
   {
     name: "Checkout",
     path: "checkout",
-    element: "checkout",
+    element: <Checkout />,
   },
 ];
