@@ -13,7 +13,7 @@ const NavItems = () => {
     <>
       <div className="relative">
       <div className="absolute top-0 left-0 right-0 z-10">
-      <div className="flex gap-5 py-2 max-w-[1440px] mx-auto bg-transparent">
+      <div className="flex gap-5 py-2 max-w-7xl mx-auto bg-transparent">
           <div className="navbar">
             <div className="navbar-start">
               <div className="dropdown">
