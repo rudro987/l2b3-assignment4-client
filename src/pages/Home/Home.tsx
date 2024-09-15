@@ -1,7 +1,9 @@
+import Services from "../../components/ui/Services";
+
 const Home = () => {
   return (
     <div>
-      <h1>This is Home Component</h1>
+      <Services />
     </div>
   )
 };

@@ -3,11 +3,13 @@ import NavItems from "../Shared/Header/NavItems";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="">
       <NavItems />
-      <Outlet />
+      <div className="max-w-[1440px] mx-auto min-h-screen">
+        <Outlet />
+      </div>
     </div>
-  )
+  );
 };
 
 export default MainLayout;
