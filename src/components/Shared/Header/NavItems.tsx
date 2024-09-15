@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { menuItemsGenerator } from "../../../utils/menuItemsGenerator";
 import { allPaths } from "../../../routes/allPaths";
 import Banner from "../../ui/Banner";
+import { FaCartArrowDown } from "react-icons/fa";
 
 const NavItems = () => {
   const menuItems = menuItemsGenerator(allPaths);
@@ -59,7 +60,9 @@ const NavItems = () => {
               </ul>
             </div>
             <div className="navbar-end">
-              <a className="btn">Button</a>
+              <div className="flex items-center">
+                <p>+0</p>
+                <Link to="/"><FaCartArrowDown className="text-xl" /></Link></div>
             </div>
           </div>
         </div>
