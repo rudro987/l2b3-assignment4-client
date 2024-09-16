@@ -1,4 +1,5 @@
 import CustomerReviews from "./CustomerReviews";
+import CustomizableOptions from "./CustomizableOptions";
 import Featured from "./Featured";
 import Services from "./Services";
 import TopBrands from "./TopBrands";
@@ -11,6 +12,7 @@ const Home = () => {
       <Featured />
       <WhyChooseUs />
       <TopBrands />
+      <CustomizableOptions />
       <CustomerReviews />
     </div>
   )
