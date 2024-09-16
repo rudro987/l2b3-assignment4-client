@@ -6,8 +6,6 @@ import { FaCartArrowDown } from "react-icons/fa";
 
 const NavItems = () => {
   const menuItems = menuItemsGenerator(allPaths);
-  console.log(menuItems);
-  console.log(typeof menuItems);
 
   return (
     <>
@@ -41,8 +39,8 @@ const NavItems = () => {
                   tabIndex={0}
                   className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
                 >
-                  {menuItems?.map((item) => (
-                    <li>
+                  {menuItems?.map((item, index) => (
+                    <li key={index}>
                       <Link to={`${item.path}`}>{item.name}</Link>
                     </li>
                   ))}

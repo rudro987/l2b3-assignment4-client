@@ -8,7 +8,11 @@ export default {
     daisyui: {
     themes: ["light", "dark", "cupcake"],
   },
-    extend: {},
+    extend: {
+      colors: {
+        'primaryFont': '#71ECB6',
+      },
+    },
   },
   plugins: [
     require('daisyui'),

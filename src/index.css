@@ -5,3 +5,15 @@
 body{
     background-color: #151515;
 }
+
+.swiper-button-prev, .swiper-button-next{
+    color: #71ECB6
+}
+
+.swiper-pagination-bullet{
+    background: #FFFFFF
+}
+
+.swiper-pagination-bullet-active{
+    background-color: #71ECB6
+}
