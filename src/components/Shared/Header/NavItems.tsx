@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { menuItemsGenerator } from "../../../utils/menuItemsGenerator";
 import { allPaths } from "../../../routes/allPaths";
-import Banner from "../../ui/Banner";
+import Banner from "../../../pages/Home/Banner";
 import { FaCartArrowDown } from "react-icons/fa";
 
 const NavItems = () => {
@@ -22,7 +22,7 @@ const NavItems = () => {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
+                    className="h-5 w-5 text-primaryFont"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -40,27 +40,26 @@ const NavItems = () => {
                   className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
                 >
                   {menuItems?.map((item, index) => (
-                    <li key={index}>
-                      <Link to={`${item.path}`}>{item.name}</Link>
+                    <li key={index} className="text-base hover:text-primaryFont">
+                      <Link className="hover:bg-transparent" to={`${item.path}`}>{item.name}</Link>
                     </li>
                   ))}
                 </ul>
               </div>
-              <a className="btn btn-ghost text-xl">daisyUI</a>
+              <Link to="/" className="text-2xl font-mono"><span className="text-secondaryColor font-bold">Ctrl</span>+Alt+<span className="text-primaryFont font-bold">Del</span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1">
-                {menuItems?.map((item) => (
-                  <li>
-                    <Link to={`${item.path}`}>{item.name}</Link>
+                {menuItems?.map((item, index) => (
+                  <li key={index} className="text-base hover:text-primaryFont">
+                    <Link className="hover:bg-transparent focus:bg-transparent focus:text-primaryFont" to={`${item.path}`}>{item.name}</Link>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="navbar-end">
-              <div className="flex items-center">
-                <p>+0</p>
-                <Link to="/"><FaCartArrowDown className="text-xl" /></Link></div>
+            <div className="navbar-end relative">
+                <div className="w-5 h-5 bg-primaryFont text-[#242424] flex justify-center items-center rounded-full text-xs absolute -top-2 -right-2">0</div>
+                <Link to="/"><FaCartArrowDown className="text-2xl text-secondaryColor" /></Link>
             </div>
           </div>
         </div>

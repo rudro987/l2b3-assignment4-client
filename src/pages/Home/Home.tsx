@@ -1,6 +1,7 @@
-import Featured from "../../components/ui/Featured";
-import Services from "../../components/ui/Services";
-import TopBrands from "../../components/ui/TopBrands";
+import CustomerReviews from "./CustomerReviews";
+import Featured from "./Featured";
+import Services from "./Services";
+import TopBrands from "./TopBrands";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <Services />
       <Featured />
       <TopBrands />
+      <CustomerReviews />
     </div>
   )
 };

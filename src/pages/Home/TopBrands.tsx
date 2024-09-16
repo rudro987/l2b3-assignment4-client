@@ -24,7 +24,7 @@ const TopBrands = () => {
         {
             Brands.map((brand, index) => (
                 <SwiperSlide key={index}>
-                    <img src={brand.image} alt="" />
+                    <img src={brand.image} alt={brand.name} className="rounded-2xl" />
                 </SwiperSlide>
             ))
         }
