@@ -2,7 +2,7 @@ import SectionTitle from "./SectionTitle";
 
 const CustomizableOptions = () => {
   return (
-    <>
+    <div className="max-w-7xl mx-auto">
     <SectionTitle title="Customizable Options" />
     <div className="hero pb-40">
       <div className="hero-content flex-col lg:flex-row-reverse lg:gap-10">
@@ -22,7 +22,7 @@ const CustomizableOptions = () => {
         </div>
       </div>
     </div>
-    </>
+    </div>
   )
 };
 

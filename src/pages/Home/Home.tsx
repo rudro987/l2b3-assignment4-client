@@ -1,3 +1,4 @@
+import Banner from "./Banner";
 import CustomerReviews from "./CustomerReviews";
 import CustomizableOptions from "./CustomizableOptions";
 import Featured from "./Featured";
@@ -8,6 +9,7 @@ import WhyChooseUs from "./WhyChooseUs";
 const Home = () => {
   return (
     <div>
+      <Banner />
       <Services />
       <Featured />
       <WhyChooseUs />

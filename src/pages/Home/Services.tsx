@@ -6,7 +6,7 @@ import SectionTitle from "./SectionTitle";
 
 const Services = () => {
   return (
-    <div className="py-40">
+    <div className="py-40 max-w-7xl mx-auto">
       <SectionTitle title='Our Services' />
       <div className="grid grid-cols-4 justify-items-stretch gap-10">
         <div className="bg-[#242424] border border-[#3A3A3A] hover:border-secondaryColor rounded-md flex flex-col items-center justify-center gap-3 ">

@@ -1,17 +1,14 @@
 import { Link } from "react-router-dom";
 import { menuItemsGenerator } from "../../../utils/menuItemsGenerator";
 import { allPaths } from "../../../routes/allPaths";
-import Banner from "../../../pages/Home/Banner";
 import { FaCartArrowDown } from "react-icons/fa";
 
 const NavItems = () => {
   const menuItems = menuItemsGenerator(allPaths);
 
   return (
-    <>
-      <div className="relative">
-      <div className="absolute top-0 left-0 right-0 z-10">
-      <div className="flex gap-5 py-2 max-w-7xl mx-auto bg-transparent">
+    <div className="bg-[#111215]">
+      <div className="flex gap-5 py-2 max-w-7xl mx-auto">
           <div className="navbar">
             <div className="navbar-start">
               <div className="dropdown">
@@ -63,12 +60,7 @@ const NavItems = () => {
             </div>
           </div>
         </div>
-      </div>
-        
-      </div>
-
-      <Banner />
-    </>
+    </div>
   );
 };
 

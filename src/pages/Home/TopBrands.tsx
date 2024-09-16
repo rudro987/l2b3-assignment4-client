@@ -9,7 +9,7 @@ import { Brands } from "./BrandsLogo";
 
 const TopBrands = () => {
   return (
-    <div className="pb-40">
+    <div className="pb-40 max-w-7xl mx-auto">
       <SectionTitle title="Top Brands" />
       <Swiper
         // install Swiper modules

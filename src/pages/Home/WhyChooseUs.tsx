@@ -2,7 +2,7 @@ import SectionTitle from "./SectionTitle";
 
 const WhyChooseUs = () => {
   return (
-    <>
+    <div className="max-w-7xl mx-auto">
     <SectionTitle title="Why Choose Us?" />
     <div className="hero pb-40">
       <div className="hero-content flex-col lg:flex-row lg:gap-10">
@@ -19,7 +19,7 @@ const WhyChooseUs = () => {
         </div>
       </div>
     </div>
-    </>
+    </div>
   );
 };
 
