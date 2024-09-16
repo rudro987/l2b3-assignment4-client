@@ -4,7 +4,8 @@ const Banner = () => {
       className="hero min-h-screen"
       style={{
         backgroundImage:
-          "url(https://i.ibb.co.com/9vTsyCv/pngtree-blue-lighted-gaming-keyboard-is-sitting-in-a-dark-room-picture-image-2738329.png)",
+          "url(https://i.ibb.co.com/NxFdNpd/cd21eaff8503635e05e1092ccee209b8.jpg)",
+        backgroundPositionY: "top",
       }}
     >
       <div className="hero-overlay bg-opacity-30"></div>
