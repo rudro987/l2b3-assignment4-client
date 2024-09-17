@@ -1,6 +1,5 @@
 const Banner = () => {
   return (
-        <div className="">
           <div
           className="hero min-h-screen"
           style={{
@@ -21,7 +20,6 @@ const Banner = () => {
               <button className="btn btn-primary">Get Started</button>
             </div>
           </div>
-        </div>
         </div>
   );
 };
