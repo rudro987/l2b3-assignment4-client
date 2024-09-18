@@ -10,7 +10,7 @@ const TextArea = ({ label, placeholder, name, register }:TInputProps) => {
       <textarea
         placeholder={placeholder}
         {...register(name!, { required: true})}
-        className="w-full h-28 leading-6 px-4 border border-primaryFont rounded-lg focus-visible:outline-none pt-3"
+        className="w-full h-28 leading-6 px-4 border border-secondaryColor rounded-lg focus-visible:outline-none pt-3"
         required
       ></textarea>
     </div>

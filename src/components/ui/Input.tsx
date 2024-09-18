@@ -13,7 +13,7 @@ export type TInputProps = {
 const Input = ({ type, label, placeholder, register, name }: TInputProps) => {
 
   return (
-    <div className="form-control h-">
+    <div className="form-control">
       <label className="label">
         <span className="text-lg">{label}</span>
       </label>
@@ -21,7 +21,7 @@ const Input = ({ type, label, placeholder, register, name }: TInputProps) => {
         type={type}
         placeholder={placeholder}
         {...register(name, { required: true})}
-        className="w-full h-14 leading-6 px-4 border border-primaryFont rounded-lg focus-visible:outline-none"
+        className="w-full h-14 leading-6 px-4 border border-secondaryColor rounded-lg focus-visible:outline-none"
       />
       
     </div>

@@ -3,6 +3,7 @@ import SectionTitle from "../Home/SectionTitle";
 import Input from "../../components/ui/Input";
 import TextArea from "../../components/ui/TextArea";
 import { useCreateProductMutation } from "../../redux/features/createProductsApi";
+import Button from "../../components/ui/Button";
 
 const AddProduct = () => {
   type Inputs = {
@@ -53,7 +54,7 @@ const AddProduct = () => {
       <SectionTitle title="Add a Product" />
       <div className="hero">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="card bg-[#242424] w-[600px] shrink-0 shadow-2xl">
+          <div className="card w-[600px] shrink-0 shadow-2xl">
             <form className="card-body pb-10" onSubmit={handleSubmit(onSubmit)}>
                 <Input type="text" label="Name" placeholder="Product Name" name="name" register={register}/>
                 {errors.name && <span>Name is required</span>}
@@ -79,7 +80,7 @@ const AddProduct = () => {
                 </div>
 
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Create Product</button>
+                <Button title="create product" />
               </div>
             </form>
           </div>
