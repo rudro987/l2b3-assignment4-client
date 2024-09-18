@@ -7,8 +7,6 @@ const NavItems = () => {
   const menuItems = menuItemsGenerator(allPaths);
 
   return (
-    <div className="relative">
-      <div className="absolute top-0 left-0 z-10 w-full">
         <div className="flex gap-5 py-2 max-w-7xl mx-auto">
           <div className="navbar">
             <div className="navbar-start">
@@ -43,7 +41,7 @@ const NavItems = () => {
                       className="text-base hover:text-primaryFont"
                     >
                       <Link
-                        className="hover:bg-transparent"
+                        className="font-semibold focus:bg-transparent focus:text-primaryFont hover:bg-transparent"
                         to={`${item.path}`}
                       >
                         {item.name}
@@ -62,7 +60,7 @@ const NavItems = () => {
                 {menuItems?.map((item, index) => (
                   <li key={index} className="text-base hover:text-primaryFont">
                     <Link
-                      className="hover:bg-transparent focus:bg-transparent focus:text-primaryFont"
+                      className="font-semibold hover:bg-transparent focus:bg-transparent focus:text-primaryFont"
                       to={`${item.path}`}
                     >
                       {item.name}
@@ -72,7 +70,7 @@ const NavItems = () => {
               </ul>
             </div>
             <div className="navbar-end relative">
-              <div className="w-5 h-5 bg-primaryFont text-[#242424] flex justify-center items-center rounded-full text-xs absolute -top-2 -right-2">
+              <div className="w-5 h-5 bg-primaryFont text-white flex justify-center items-center rounded-full text-xs absolute -top-2 -right-2">
                 0
               </div>
               <Link to="/">
@@ -81,8 +79,6 @@ const NavItems = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
   );
 };
 

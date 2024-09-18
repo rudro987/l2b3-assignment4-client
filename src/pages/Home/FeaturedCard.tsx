@@ -1,7 +1,7 @@
 const FeaturedCard = () => {
   return (
     <>
-      <div className="card w-full bg-[#242424]">
+      <div className="card w-full">
         <figure>
           <img
             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -18,7 +18,7 @@ const FeaturedCard = () => {
         </div>
       </div>
 
-      <div className="card w-full bg-[#242424]">
+      <div className="card w-full">
         <figure>
           <img
             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -35,7 +35,7 @@ const FeaturedCard = () => {
         </div>
       </div>
 
-      <div className="card w-full bg-[#242424]">
+      <div className="card w-full">
         <figure>
           <img
             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -52,7 +52,7 @@ const FeaturedCard = () => {
         </div>
       </div>
 
-      <div className="card w-full bg-[#242424]">
+      <div className="card w-full">
         <figure>
           <img
             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -69,7 +69,7 @@ const FeaturedCard = () => {
         </div>
       </div>
 
-      <div className="card w-full bg-[#242424]">
+      <div className="card w-full">
         <figure>
           <img
             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -86,7 +86,7 @@ const FeaturedCard = () => {
         </div>
       </div>
 
-      <div className="card w-full bg-[#242424]">
+      <div className="card w-full">
         <figure>
           <img
             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"

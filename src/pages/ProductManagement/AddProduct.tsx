@@ -2,6 +2,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import SectionTitle from "../Home/SectionTitle";
 import Input from "../../components/ui/Input";
 import TextArea from "../../components/ui/TextArea";
+import { useCreateProductMutation } from "../../redux/features/createProductsApi";
 
 const AddProduct = () => {
   type Inputs = {
@@ -14,9 +15,38 @@ const AddProduct = () => {
     quantity: number
   };
 
-  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const [createProduct] = useCreateProductMutation();
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      const productData = {
+        name: data.name,
+        description: data.description,
+        image: data.image,
+        brand: data.brand,
+        price: Number(data.price),
+        rating: Number(data.rating),
+        quantity: Number(data.quantity)
+      }
+
+      const res = await createProduct(productData).unwrap();
+
+      console.log(res);
+
+      reset();
+      
+      
+
+
+
+    } catch (error) {
+      console.log(error);
+      
+    }
+    
+  }
 
   return (
     <div className="py-40 max-w-7xl mx-auto">

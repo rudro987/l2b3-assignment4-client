@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-[#242424]">
+    <div className="bg-secondaryColor">
       <footer
         className="max-w-7xl mx-auto 
-        text-base-content py-10 flex justify-between gap-20"
+        text-white py-10 flex justify-between gap-20"
       >
         <div>
-          <h6 className="footer-title">Navigation</h6>
+          <h6 className="mb-2 font-bold uppercase opacity-80">Navigation</h6>
           <div className="flex flex-col gap-3">
             <Link to="/" className="link link-hover">
               Home
@@ -25,7 +25,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <h6 className="footer-title">Product Links</h6>
+          <h6 className="mb-2 font-bold uppercase opacity-80">Product Links</h6>
           <div className="flex flex-col gap-3">
             <Link to="/product-management" className="link link-hover">
               Product Management
@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <h6 className="footer-title">Social Links</h6>
+          <h6 className="mb-2 font-bold uppercase opacity-80">Social Links</h6>
           <div className="flex gap-5">
             <Link to="#" className="link link-hover">
               <svg

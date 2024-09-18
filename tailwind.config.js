@@ -10,8 +10,8 @@ export default {
   },
     extend: {
       colors: {
-        'primaryFont': '#71ECB6',
-        'secondaryColor': '#BAFE6D'
+        'primaryFont': '#D91656',
+        'secondaryColor': '#227B94'
       },
       fontFamily: {
         'primaryFont': ['Figtree', 'sans-serif'],
