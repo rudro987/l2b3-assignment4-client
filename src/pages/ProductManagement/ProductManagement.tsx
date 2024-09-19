@@ -7,6 +7,8 @@ import Button from "../../components/ui/Button";
 import { Link } from "react-router-dom";
 import UpdateProduct from "./UpdateProduct";
 import { TInputs } from "./AddProduct";
+import { useDeleteProductMutation } from "../../redux/features/deleteProductApi";
+import Swal from "sweetalert2";
 
 export interface TUpdateProps extends TInputs {
   _id: string;
@@ -15,10 +17,36 @@ export interface TUpdateProps extends TInputs {
 const ProductManagement = () => {
   const { data, isLoading, refetch } = useGetAllProductsQuery(undefined);
 
+  const [deleteProduct] = useDeleteProductMutation();
+
   if (isLoading) {
     return <Loader size="160px" />;
   }
   const products = data.data;
+
+  const handleDelete = (id: string) => {
+    Swal.fire({
+      icon: "error",
+      showCloseButton: true,
+      showCancelButton: true,
+      title: "Are you sure?",
+      text: "Deleting a product is irreversible!",
+      confirmButtonText: `
+    <i class="fa fa-thumbs-up"></i> Delete
+  `,
+  cancelButtonText: `
+    <i class="f">Cancel</i>
+  `,
+  confirmButtonColor: "#D91656",
+  cancelButtonColor: "#227B94"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const res = await deleteProduct(id).unwrap();
+
+        res.success && refetch();
+      }
+    });
+  };
 
   return (
     <div className="py-20">
@@ -99,7 +127,7 @@ const ProductManagement = () => {
                   </dialog>
                 </td>
                 <td>
-                  <button>
+                  <button onClick={() => handleDelete(product._id)}>
                     <FaTrashAlt
                       size="24"
                       className="text-primaryFont hover:text-secondaryColor"
