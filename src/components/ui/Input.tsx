@@ -4,12 +4,14 @@ import { UseFormRegister } from "react-hook-form";
 export type TInputProps = {
   label: string;
   register: UseFormRegister<any>;
-  placeholder: string;
+  placeholder?: string;
+  value?:string | number;
   name: string;
   valueAsNumber?: boolean;
+  required?: boolean;
 };
 
-const Input = ({ label, placeholder, register, name }: TInputProps) => {
+const Input = ({ label, placeholder, register, name, value, required=false }: TInputProps) => {
 
   return (
     <div className="form-control">
@@ -19,7 +21,8 @@ const Input = ({ label, placeholder, register, name }: TInputProps) => {
       <input
         type="text"
         placeholder={placeholder}
-        {...register(name, { required: true})}
+        {...register(name, { required: required})}
+        defaultValue={value}
         className="w-full h-14 leading-6 px-4 border border-secondaryColor rounded-lg focus-visible:outline-none"
       />
       

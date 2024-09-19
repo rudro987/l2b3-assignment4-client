@@ -7,22 +7,23 @@ import { useCreateProductMutation } from "../../redux/features/createProductsApi
 import Button from "../../components/ui/Button";
 import { toast } from "sonner";
 
-const AddProduct = () => {
-  type Inputs = {
-    name: string,
-    description: string,
-    image: string,
-    brand: string,
-    price: number,
-    rating: number,
-    quantity: number
-  };
+export type TInputs = {
+  name: string,
+  description: string,
+  image: string,
+  brand: string,
+  price: number,
+  rating: number,
+  quantity: number
+};
 
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>();
+const AddProduct = () => {
+
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<TInputs>();
 
   const [createProduct] = useCreateProductMutation();
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+  const onSubmit: SubmitHandler<TInputs> = async (data) => {
     const toastId = toast.loading("Adding a new Product");
     try {
       const productData = {
@@ -61,31 +62,31 @@ const AddProduct = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="card w-[600px] shrink-0 shadow-2xl">
             <form className="card-body pb-10" onSubmit={handleSubmit(onSubmit)}>
-                <Input label="Name" placeholder="Product Name" name="name" register={register}/>
+                <Input label="Name" placeholder="Product Name" name="name" register={register} required={true} />
                 {errors.name && <span className="text-red-700">Name is required</span>}
                 <TextArea label="Description" 
-                placeholder="Product Description" name="description" register={register} />
+                placeholder="Product Description" name="description" register={register} required={true} />
                 {errors.description && <span className="text-red-700">Description is required</span>}
-                <Input label="Image" placeholder="Product Image" name="image" register={register} />
+                <Input label="Image" placeholder="Product Image" name="image" register={register} required={true} />
                 {errors.image && <span className="text-red-700">Image is required</span>}
                 <div className="flex gap-5">
                 <div className="w-1/2">
-                <Input label="Brand" placeholder="Brand Name" name="brand" register={register} />
+                <Input label="Brand" placeholder="Brand Name" name="brand" register={register} required={true} />
                 {errors.brand && <span className="text-red-700">Brand is required</span>}
                 </div>
                 <div className="w-1/2">
-                <Input label="Price" placeholder="Product Price" name="price" register={register} />
+                <Input label="Price" placeholder="Product Price" name="price" register={register} required={true} />
                 {errors.price && <span className="text-red-700">Price is required</span>}
                 </div>
                 
                 </div>
                 <div className="flex gap-5">
                 <div className="w-1/2"> 
-                <Input label="rating" placeholder="Product Rating" name="rating" register={register}  />
+                <Input label="rating" placeholder="Product Rating" name="rating" register={register} required={true}  />
                 {errors.rating && <span className="text-red-700">Product Rating is required</span>}
                 </div> 
                 <div className="w-1/2"> 
-                <Input label="Quantity" placeholder="Product Quantity" name="quantity" register={register} />
+                <Input label="Quantity" placeholder="Product Quantity" name="quantity" register={register} required={true} />
                 {errors.quantity && <span className="text-red-700">Quantity is required</span>}
                 </div>
                 </div>
