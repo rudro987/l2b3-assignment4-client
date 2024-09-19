@@ -38,18 +38,11 @@ const AddProduct = () => {
 
       const res = await createProduct(productData).unwrap();
 
-      console.log(res);
-
       toast.success("Product added successfully", { id: toastId, duration: 2000 });
 
       reset();
-      
-      
-
-
 
     } catch (err: any) {
-      console.log(err);
       toast.error(err.data.errorSources[0].message, { id: toastId, duration: 5000 });
     }
     
