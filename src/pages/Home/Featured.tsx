@@ -5,7 +5,8 @@ import FeaturedCard from "./FeaturedCard";
 import SectionTitle from "./SectionTitle";
 
 const Featured = () => {
-  const { data, isLoading } = useGetAllProductsQuery(undefined);
+  const query = { limit: 6 };
+  const { data, isLoading } = useGetAllProductsQuery(query);
 
   const allProducts = data?.data;
 
@@ -15,14 +16,11 @@ const Featured = () => {
 
   return (
     <div className="pb-40 max-w-7xl mx-auto">
-    <SectionTitle title='Featured Products' />
+      <SectionTitle title="Featured Products" />
       <div className="grid grid-cols-3 gap-5">
-        {
-          allProducts?.map((product: TUpdateProps, index: number) => 
-            <FeaturedCard product={product} key={index} />
-          )
-        }
-        
+        {allProducts?.map((product: TUpdateProps, index: number) => (
+          <FeaturedCard product={product} key={index} />
+        ))}
       </div>
     </div>
   );

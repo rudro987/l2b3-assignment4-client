@@ -1,7 +1,13 @@
+import SectionTitle from "../Home/SectionTitle";
+
 const Products = () => {
   return (
-    <div>
-      <h1>This is Products Component</h1>
+    <div className="py-20 max-w-7xl mx-auto">
+      <SectionTitle title="Our Products" />
+      <div className="flex justify-between">
+        <div>Search</div>
+        <div>filter</div>
+      </div>
     </div>
   )
 };

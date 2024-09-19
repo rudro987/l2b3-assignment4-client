@@ -15,10 +15,11 @@ export interface TUpdateProps extends TInputs {
 }
 
 const ProductManagement = () => {
-  const { data, isLoading, refetch } = useGetAllProductsQuery(undefined);
+  const query = {};
+  const { data, isLoading, refetch } = useGetAllProductsQuery(query);
 
   const [deleteProduct] = useDeleteProductMutation();
-  const products = data.data;
+  const products = data?.data;
 
   const handleDelete = (id: string) => {
     Swal.fire({
