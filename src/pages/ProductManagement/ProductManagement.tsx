@@ -18,10 +18,6 @@ const ProductManagement = () => {
   const { data, isLoading, refetch } = useGetAllProductsQuery(undefined);
 
   const [deleteProduct] = useDeleteProductMutation();
-
-  if (isLoading) {
-    return <Loader size="160px" />;
-  }
   const products = data.data;
 
   const handleDelete = (id: string) => {
@@ -47,6 +43,10 @@ const ProductManagement = () => {
       }
     });
   };
+
+  if (isLoading) {
+    return <Loader size="160px" />;
+  }
 
   return (
     <div className="py-20">
