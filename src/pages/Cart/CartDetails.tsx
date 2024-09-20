@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FaMinus, FaTrash, FaPlus } from "react-icons/fa";
 import { useAppDispatch } from "../../redux/hooks";
-import { updateQuantity } from "../../redux/features/slices/cartSlice";
+import { removeCartItem, updateQuantity } from "../../redux/features/slices/cartSlice";
 
 const CartDetails = ({ product }: any) => {
     const dispatch = useAppDispatch();
@@ -10,11 +10,11 @@ const CartDetails = ({ product }: any) => {
       dispatch(updateQuantity(payload));
     };
   
-    // const handleRemove = (e: any, id: string) => {
-    //   e.stopPropagation();
-    //   const payload = { id };
-    //   dispatch(removeCartItem(payload));
-    // };
+    const removeItem = (e: any, id: string) => {
+      e.stopPropagation();
+      const payload = { id };
+      dispatch(removeCartItem(payload));
+    };
   
     return (
       <div className="flex items-center justify-between space-x-4 border border-secondaryColor rounded-lg p-4 bg-white shadow-md transition-transform transform hover:scale-105 hover:shadow-lg w-full">
@@ -45,7 +45,7 @@ const CartDetails = ({ product }: any) => {
           </button>
         </div>
         <button
-        //   onClick={(e) => handleRemove(e, product.id)}
+          onClick={(e) => removeItem(e, product._id)}
           className="bg-primaryFont text-white p-2 rounded-full hover:bg-secondaryColor"
         >
           <FaTrash size={18} />

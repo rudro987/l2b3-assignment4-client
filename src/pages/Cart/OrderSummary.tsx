@@ -1,14 +1,15 @@
 import { FaCreditCard, FaTrash } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { clearCart } from "../../redux/features/slices/cartSlice";
 
 const OrderSummary = () => {
 
     const dispatch = useAppDispatch();
     const { selectedItems,  totalPrice, totalOrderedItems } = useAppSelector(store => store.cart);
   
-    // const handleClearCart = () => {
-    //   dispatch(clearCart());
-    // }
+    const handleClearCart = () => {
+      dispatch(clearCart());
+    }
   
     return (
       <div className=" lg:w-80 w-full h-full rounded">
