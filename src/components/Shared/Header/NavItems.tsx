@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import { menuItemsGenerator } from "../../../utils/menuItemsGenerator";
 import { allPaths } from "../../../routes/allPaths";
 import { FaCartArrowDown } from "react-icons/fa";
+import { useAppSelector } from "../../../redux/hooks";
 
 const NavItems = () => {
+
   const menuItems = menuItemsGenerator(allPaths);
+  const totalCartItems = useAppSelector(state => state.cart.selectedItems);
 
   return (
         <div className="flex gap-5 py-2 max-w-7xl mx-auto">
@@ -71,9 +74,9 @@ const NavItems = () => {
             </div>
             <div className="navbar-end relative">
               <div className="w-5 h-5 bg-primaryFont text-white flex justify-center items-center rounded-full text-xs absolute -top-2 -right-2">
-                0
+                {totalCartItems}
               </div>
-              <Link to="/">
+              <Link to="/cart">
                 <FaCartArrowDown className="text-2xl text-secondaryColor" />
               </Link>
             </div>
