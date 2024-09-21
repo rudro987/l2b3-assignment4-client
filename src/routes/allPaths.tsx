@@ -6,6 +6,7 @@ import ContactUs from "../pages/ContactUs/ContactUs";
 import Home from "../pages/Home/Home";
 import AddProduct from "../pages/ProductManagement/AddProduct";
 import ProductManagement from "../pages/ProductManagement/ProductManagement";
+import ProductDetails from "../pages/Products/ProductDetails";
 import Products from "../pages/Products/Products";
 
 export const allPaths = [
@@ -18,6 +19,11 @@ export const allPaths = [
     name: "Products",
     path: "products",
     element: <Products />,
+  },
+  {
+    name: "Single Products",
+    path: "products/:id",
+    element: <ProductDetails />,
   },
   {
     name: "About us",
