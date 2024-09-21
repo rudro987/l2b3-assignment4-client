@@ -38,7 +38,7 @@ const ProductCard = ({ product }: { product: TUpdateProps }) => {
           <div className="card-actions justify-center pt-8">
             <Link to={`/products/${product._id}`} state={{ product }}>
               <button className="uppercase btn bg-secondaryColor rounded text-white hover:bg-primaryFont">
-                show details
+                see details
               </button>
             </Link>
           </div>
