@@ -47,6 +47,7 @@ const UpdateProduct = ({
         <div className="card shrink-0">
           <form className="card-body p-0" onSubmit={handleSubmit(onSubmit)}>
             <Input
+             type="text"
               label="Name"
               value={product.name}
               name="name"
@@ -62,6 +63,7 @@ const UpdateProduct = ({
               register={register}
             />
             <Input
+             type="text"
               label="Image"
               value={product.image}
               name="image"
@@ -70,6 +72,7 @@ const UpdateProduct = ({
             <div className="flex gap-5">
               <div className="w-1/2">
                 <Input
+                 type="text"
                   label="Brand"
                   value={product.brand}
                   name="brand"
@@ -78,6 +81,7 @@ const UpdateProduct = ({
               </div>
               <div className="w-1/2">
                 <Input
+                 type="text"
                   label="Price"
                   value={product.price}
                   name="price"
@@ -88,6 +92,7 @@ const UpdateProduct = ({
             <div className="flex gap-5">
               <div className="w-1/2">
                 <Input
+                 type="text"
                   label="rating"
                   value={product.rating}
                   name="rating"
@@ -96,6 +101,7 @@ const UpdateProduct = ({
               </div>
               <div className="w-1/2">
                 <Input
+                 type="text"
                   label="Quantity"
                   value={product.quantity}
                   name="quantity"

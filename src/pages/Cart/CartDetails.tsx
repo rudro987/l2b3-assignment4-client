@@ -29,9 +29,10 @@ const CartDetails = ({ product }: {product: TCartItems}) => {
           <h3 className="text-lg font-semibold truncate mb-2">
             {product.name}
           </h3>
-          <div className="flex gap-10">
-          <p className="text-lg font-bold text-primaryFont">${product.price}</p>
-          <p className="text-lg font-bold text-secondaryColor">Available stock: {product.quantity}</p>
+          <div className="flex gap-4">
+          <p className="text-base font-bold">${product.price}</p>
+          <p className="text-base font-bold text-secondaryColor">Available stock: {product.quantity}</p>
+          <p className="text-base font-bold">Total: <span className="text-primaryFont">${product.price * product.orderQuantity}</span></p>
           </div>
         </div>
         <div className="flex items-center space-x-2">

@@ -2,16 +2,18 @@
 import { UseFormRegister } from "react-hook-form";
 
 export type TInputProps = {
-  label: string;
+  type?: string;
+  label?: string;
   register: UseFormRegister<any>;
   placeholder?: string;
   value?:string | number;
   name: string;
   valueAsNumber?: boolean;
   required?: boolean;
+  className?: string;
 };
 
-const Input = ({ label, placeholder, register, name, value, required=false }: TInputProps) => {
+const Input = ({ type, label, placeholder, register, name, value, required=false }: TInputProps) => {
 
   return (
     <div className="form-control">
@@ -19,7 +21,7 @@ const Input = ({ label, placeholder, register, name, value, required=false }: TI
         <span className="text-lg">{label}</span>
       </label>
       <input
-        type="text"
+        type={type}
         placeholder={placeholder}
         {...register(name, { required: required})}
         defaultValue={value}
