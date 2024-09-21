@@ -4,6 +4,7 @@ import TextArea from "../../components/ui/TextArea";
 import { useUpdateProductMutation } from "../../redux/features/updateProductApi";
 import { TUpdateProps } from "./ProductManagement";
 import Button from "../../components/ui/Button";
+import { toast } from "sonner";
 
 const UpdateProduct = ({
   product,
@@ -34,7 +35,10 @@ const UpdateProduct = ({
 
     const res = await updateProduct({productUpdatedData, id}).unwrap();
 
-    res.success && refetch();
+    if(res.success){
+      toast.success('Product successfully updated!')
+      refetch();
+    }
   };
 
   return (

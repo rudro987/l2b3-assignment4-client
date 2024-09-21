@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { TUpdateProps } from "../../../pages/ProductManagement/ProductManagement";
 
 export interface TCartItems extends TUpdateProps{
@@ -24,7 +23,7 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: iniatialState,
   reducers: {
-    addToCart: (state, action) => {
+    addToCart: (state, action: PayloadAction<TUpdateProps>) => {
       const isProductExist = state.products.find(
         (product) => product._id === action.payload._id
       );
@@ -35,7 +34,7 @@ const cartSlice = createSlice({
       state.totalOrderedItems = setTotalQuantity(state);
       state.totalPrice = setTotalPrice(state);
     },
-    updateQuantity: (state, action) => {
+    updateQuantity: (state, action: PayloadAction<{ id: string; type: string }>) => {
       state.products.map((product) => {
         if (product._id === action.payload.id) {
           if (action.payload.type === "increment") {
@@ -52,9 +51,9 @@ const cartSlice = createSlice({
       state.totalPrice = setTotalPrice(state);
     },
 
-    removeCartItem: (state, action) => {
+    removeCartItem: (state, action: PayloadAction<{ id: string }>) => {
       state.products = state.products.filter(
-        (product: any) => product._id !== action.payload.id
+        (product) => product._id !== action.payload.id
       );
     
       state.selectedItems = state.products.length;
@@ -71,14 +70,14 @@ const cartSlice = createSlice({
   },
 });
 
-const setTotalQuantity = (state: any) => {
-  return state.products.reduce((total: number, product: any) => {
+const setTotalQuantity = (state: TCartProps) => {
+  return state.products.reduce((total, product) => {
     return Number(total + product.orderQuantity);
   }, 0);
 };
 
-const setTotalPrice = (state: any) => {
-  return state.products.reduce((total: number, product: any) => {
+const setTotalPrice = (state: TCartProps) => {
+  return state.products.reduce((total, product) => {
     return Number(total + product.orderQuantity * product.price);
   }, 0);
 };

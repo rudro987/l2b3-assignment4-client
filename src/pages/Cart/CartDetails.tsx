@@ -1,16 +1,18 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FaMinus, FaTrash, FaPlus } from "react-icons/fa";
 import { useAppDispatch } from "../../redux/hooks";
-import { removeCartItem, updateQuantity } from "../../redux/features/slices/cartSlice";
+import { removeCartItem, TCartItems, updateQuantity } from "../../redux/features/slices/cartSlice";
+import React from "react";
 
-const CartDetails = ({ product }: any) => {
-    const dispatch = useAppDispatch();
+const CartDetails = ({ product }: {product: TCartItems}) => {
+    
+  const dispatch = useAppDispatch();
+
     const handleQuantity = (type: string, id: string) => {
       const payload = { type, id };
       dispatch(updateQuantity(payload));
     };
   
-    const removeItem = (e: any, id: string) => {
+    const removeItem = (e: React.MouseEvent<HTMLButtonElement>, id: string) => {
       e.stopPropagation();
       const payload = { id };
       dispatch(removeCartItem(payload));
@@ -27,7 +29,10 @@ const CartDetails = ({ product }: any) => {
           <h3 className="text-lg font-semibold truncate mb-2">
             {product.name}
           </h3>
+          <div className="flex gap-10">
           <p className="text-lg font-bold text-primaryFont">${product.price}</p>
+          <p className="text-lg font-bold text-secondaryColor">Available stock: {product.quantity}</p>
+          </div>
         </div>
         <div className="flex items-center space-x-2">
           <button

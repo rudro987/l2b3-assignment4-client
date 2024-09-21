@@ -1,15 +1,35 @@
 import { FaCreditCard, FaTrash } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { clearCart } from "../../redux/features/slices/cartSlice";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const OrderSummary = () => {
 
+  const navigate = useNavigate();
+
     const dispatch = useAppDispatch();
-    const { selectedItems,  totalPrice, totalOrderedItems } = useAppSelector(store => store.cart);
+
+    const { selectedItems,  totalPrice, totalOrderedItems, products } = useAppSelector(store => store.cart);
+
+    const hasOutOfStockItems = products.some((product) => product.orderQuantity > product.quantity);
   
     const handleClearCart = () => {
       dispatch(clearCart());
     }
+
+    const handleCheckout = () => {
+      if (hasOutOfStockItems) {
+        Swal.fire({
+          title: "Out of Stock!",
+          text: "Some items in your cart exceed the available stock. Please adjust the quantities.",
+          icon: "error",
+          confirmButtonText: "Okay",
+        });
+      } else {
+        navigate('/checkout')
+      }
+    };
   
     return (
       <div className=" lg:w-80 w-full h-full rounded">
@@ -41,10 +61,14 @@ const OrderSummary = () => {
           <button
             onClick={(e) => {
               e.stopPropagation();
+              handleCheckout();
             }}
-            className="bg-primaryFont px-3 py-3 text-white  mt-2 rounded-md w-full text-xs flex justify-between items-center"
+            disabled={hasOutOfStockItems}
+            className={`${
+              hasOutOfStockItems ? "bg-gray-400 cursor-not-allowed" : "bg-primaryFont"
+            } px-3 py-3 text-white mt-2 rounded-md w-full text-xs flex justify-between items-center`}
           >
-            <span>Proceed Checkout</span>
+            <span>{hasOutOfStockItems ? "Out of Stock" : "Proceed to Checkout"}</span>
             <FaCreditCard className="inline" width={15} height={15} />
           </button>
         </div>
