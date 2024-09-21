@@ -1,6 +1,7 @@
 import AboutUs from "../pages/AboutUs/AboutUs";
 import Cart from "../pages/Cart/Cart";
 import Checkout from "../pages/Checkout/Checkout";
+import CodSuccess from "../pages/Checkout/Success";
 import ContactUs from "../pages/ContactUs/ContactUs";
 import Home from "../pages/Home/Home";
 import AddProduct from "../pages/ProductManagement/AddProduct";
@@ -47,5 +48,10 @@ export const allPaths = [
     name: "Add Product",
     path: "add-product",
     element: <AddProduct />,
+  },
+  {
+    name: "Success",
+    path: "success",
+    element: <CodSuccess />,
   },
 ];

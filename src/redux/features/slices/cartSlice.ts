@@ -51,6 +51,17 @@ const cartSlice = createSlice({
       state.totalPrice = setTotalPrice(state);
     },
 
+    updateQuantityOnCheckOut: (state, action) => {
+      state.products.map((product) => {
+        if (product._id === action.payload.id) {
+          product.orderQuantity = action.payload.quantity;
+        }
+        return product;
+      });
+      state.totalOrderedItems = setTotalQuantity(state);
+      state.totalPrice = setTotalPrice(state);
+    },
+
     removeCartItem: (state, action: PayloadAction<{ id: string }>) => {
       state.products = state.products.filter(
         (product) => product._id !== action.payload.id

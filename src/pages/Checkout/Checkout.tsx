@@ -1,20 +1,27 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { toast } from "sonner";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import SectionTitle from "../Home/SectionTitle";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import InputSelect from "../../components/ui/InputSelect";
+import { useNavigate } from "react-router-dom";
+import { clearCart } from "../../redux/features/slices/cartSlice";
+import { useUpdateProductMutation } from "../../redux/features/updateProductApi";
 
 export type TBillingProps = {
   name: string;
   email: string;
   phoneNumber: string;
   address: string;
+  paymentMethod: string
 };
 
 const Checkout = () => {
+  const [updateProduct] = useUpdateProductMutation();
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const { totalPrice, totalOrderedItems, products } = useAppSelector(
     (store) => store.cart
   );
@@ -27,24 +34,46 @@ const Checkout = () => {
   } = useForm<TBillingProps>();
 
   const onSubmit: SubmitHandler<TBillingProps> = async (data) => {
-    console.log(data);
     
     const toastId = toast.loading("Completing your oder!");
     try {
+
+      const updateRequests = products.map((product) =>
+        updateProduct({
+          id: product._id,
+          productUpdatedData: {
+            quantity: product.quantity - product.orderQuantity,
+          },
+        }).unwrap()
+      );
+
+      await Promise.all(updateRequests);
+
+      console.log(updateRequests);
+      
+      
+
       const productData = {
         name: data.name,
         email: data.email,
         phoneNumber: data.phoneNumber,
         address: data.address,
+        paymentMethod: data.paymentMethod
       };
+      
+      
 
-      console.log(productData);
+      if(productData.paymentMethod === 'Cash On Delivery'){
+        dispatch(clearCart());
+        navigate('/success');
+      }
 
       toast.success("Order Completed!", { id: toastId, duration: 2000 });
 
       reset();
     } catch (err: any) {
-      toast.error(err.data.errorSources[0].message, {
+      console.log(err);
+      toast.error('Something went wrong. Please try again!', {
         id: toastId,
         duration: 5000,
       });
