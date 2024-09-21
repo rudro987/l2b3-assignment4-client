@@ -29,6 +29,8 @@ const cartSlice = createSlice({
       );
       if (!isProductExist) {
         state.products.push({ ...action.payload, orderQuantity: 1 });
+      }else{
+        state.products.find(product => product.orderQuantity++)
       }
       state.selectedItems = state.products.length;
       state.totalOrderedItems = setTotalQuantity(state);

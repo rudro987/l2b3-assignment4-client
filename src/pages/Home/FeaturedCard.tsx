@@ -3,7 +3,7 @@ import { TUpdateProps } from "../ProductManagement/ProductManagement";
 const FeaturedCard = ({ product }: {product: TUpdateProps}) => {
   return (
     <>
-      <div className="card w-full">
+      <div className="card w-full bg-base-200">
         <figure>
           <img
             src={product.image}

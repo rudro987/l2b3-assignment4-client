@@ -11,6 +11,8 @@ const CartDetails = ({ product }: {product: TCartItems}) => {
       const payload = { type, id };
       dispatch(updateQuantity(payload));
     };
+
+    const isStockExceeds = product.orderQuantity >= product.quantity;
   
     const removeItem = (e: React.MouseEvent<HTMLButtonElement>, id: string) => {
       e.stopPropagation();
@@ -45,7 +47,10 @@ const CartDetails = ({ product }: {product: TCartItems}) => {
           <span className="text-lg font-semibold">{product.orderQuantity}</span>
           <button
             onClick={() => handleQuantity("increment", product._id)}
-            className="bg-secondaryColor text-white p-2 rounded-full hover:bg-primaryFont"
+            className={`${
+              isStockExceeds ? "bg-gray-400 cursor-not-allowed hover:bg-gray-400" : "bg-secondaryColor hover:bg-primaryFont"
+            } text-white p-2 rounded-full`}
+            disabled={isStockExceeds}
           >
             <FaPlus size={18} />
           </button>
