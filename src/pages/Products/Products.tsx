@@ -22,7 +22,16 @@ const Products = () => {
     maxPrice: undefined,
   });
 
-  const debouncedUpdateQuery = useRef(_.debounce(setQuery, 300)).current;
+  const [inputValue, setInputValue] = useState<string>("");
+
+  const debouncedUpdateQuery = useRef(
+    _.debounce((searchTerm: string) => {
+      setQuery((prev) => ({
+        ...prev,
+        searchTerm,
+      }));
+    }, 300)
+  ).current;
 
   const { data, isLoading } = useGetAllProductsQuery(query);
 
@@ -30,10 +39,8 @@ const Products = () => {
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    debouncedUpdateQuery((prev) => ({
-      ...prev,
-      searchTerm: value,
-    }));
+    setInputValue(value);
+    debouncedUpdateQuery(value);
   };
 
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -81,7 +88,7 @@ const Products = () => {
         <input
           type="text"
           placeholder="Search by product name or brand name"
-          value={query.searchTerm}
+          value={inputValue}
           onChange={handleSearchChange}
           className="w-[320px] h-12 leading-6 px-4 border border-secondaryColor rounded focus-visible:outline-none"
         />
@@ -93,7 +100,7 @@ const Products = () => {
             value={query.sort}
             className="w-[180px] h-12 leading-6 px-4 border border-secondaryColor rounded"
           >
-            <option value="">Sort by</option>
+            <option value="">Sort by Default</option>
             <option value="price">Price: Low to High</option>
             <option value="-price">Price: High to Low</option>
           </select>

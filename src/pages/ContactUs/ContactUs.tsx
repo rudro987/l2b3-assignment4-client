@@ -29,9 +29,9 @@ const ContactUs = () => {
         <SectionTitle title="Contact Us" />
       </div>
 
-      <div className="hero max-w-7xl mx-auto bg-[url(https://i.ibb.co.com/2yxBsND/Google-Maps-icon-on-map.png)] bg-cover rounded-md">
+      <div className="hero max-w-7xl mx-auto bg-[url(https://i.ibb.co.com/2yxBsND/Google-Maps-icon-on-map.png)] bg-cover bg-fixed rounded-md">
         <div className="hero-content w-full flex-col lg:flex-row lg:gap-10 p-20">
-          <div className="w-1/2 min-h-full flex justify-center">
+          <div className="w-1/2 min-h-full flex justify-center transition-transform transform hover:scale-105">
             <div className="space-y-3">
               <p className="text-2xl font-bold text-primaryFont">Ctrl+Alt+Del Tech Center</p>
               <p>7300 West Boston Street</p>
@@ -42,7 +42,7 @@ const ContactUs = () => {
               <p>Monday-Saturday 10:00 AM - 6:00 PM</p>
             </div>
           </div>
-          <div className="w-1/2">
+          <div className="w-1/2 transition-transform transform hover:scale-105">
             <form onSubmit={handleSubmit(onSubmit)}>
               <Input
                 type="text"

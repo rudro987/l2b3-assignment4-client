@@ -5,7 +5,7 @@ import { TUpdateProps } from "../ProductManagement/ProductManagement";
 const FeaturedCard = ({ product }: {product: TUpdateProps}) => {
   return (
     <>
-      <div className="card w-full bg-base-200">
+      <div className="card w-full bg-base-200 shadow-md transition-transform transform hover:scale-105 hover:shadow-lg">
         <figure>
           <img
             src={product.image}
