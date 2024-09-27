@@ -21,14 +21,14 @@ const CartDetails = ({ product }: {product: TCartItems}) => {
     };
   
     return (
-      <div className="flex items-center justify-between space-x-4 border border-secondaryColor rounded-lg p-4 bg-white shadow-md transition-transform transform hover:scale-105 hover:shadow-lg w-full">
+      <div className="flex flex-col lg:flex-row items-center justify-between space-x-4 border border-secondaryColor rounded-lg p-4 bg-white shadow-md transition-transform transform hover:scale-105 hover:shadow-lg w-full">
         <img
           src={product.image}
           alt={product.name}
           className="w-24 h-24 object-cover rounded-md"
         />
         <div className="flex-grow mx-4">
-          <h3 className="text-lg font-semibold truncate mb-2">
+          <h3 className="text-base lg:text-lg font-semibold truncate mb-2">
             {product.name}
           </h3>
           <div className="flex gap-4">
@@ -37,7 +37,7 @@ const CartDetails = ({ product }: {product: TCartItems}) => {
           <p className="text-base font-bold">Total: <span className="text-primaryFont">${product.price * product.orderQuantity}</span></p>
           </div>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 pt-5 lg:pt-0">
           <button
             onClick={() => handleQuantity("decrement", product._id)}
             className="bg-secondaryColor text-white p-2 rounded-full hover:bg-primaryFont"

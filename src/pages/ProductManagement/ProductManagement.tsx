@@ -50,9 +50,9 @@ const ProductManagement = () => {
   }
 
   return (
-    <div className="py-20">
+    <div className="py-20 max-w-7xl mx-auto">
       <SectionTitle title="Product Dashboard" />
-      <div className="overflow-x-auto max-w-7xl mx-auto">
+      <div className="overflow-x-auto">
         <div className="flex justify-end pb-10">
           <Link to="/add-product">
             <Button title="add new product" />

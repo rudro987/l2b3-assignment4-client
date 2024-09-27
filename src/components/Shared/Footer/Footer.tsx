@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="bg-secondaryColor">
       <footer
         className="max-w-7xl mx-auto 
-        text-white py-10 flex justify-between gap-20"
+        text-white py-10 flex flex-col items-center lg:flex-row justify-between gap-20"
       >
         <div>
           <h6 className="mb-2 font-bold uppercase opacity-80">Navigation</h6>

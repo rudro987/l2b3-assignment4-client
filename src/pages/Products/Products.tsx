@@ -3,7 +3,6 @@ import { useGetAllProductsQuery } from "../../redux/features/getAllProductsApi";
 import SectionTitle from "../Home/SectionTitle";
 import { TUpdateProps } from "../ProductManagement/ProductManagement";
 import ProductCard from "./ProductCard";
-import Button from "../../components/ui/Button";
 import { useEffect, useRef, useState } from "react";
 import _ from "lodash";
 
@@ -60,6 +59,7 @@ const Products = () => {
   };
 
   const handleClearFilters = () => {
+    setInputValue('');
     setQuery({
       searchTerm: "",
       sort: "",
@@ -83,7 +83,7 @@ const Products = () => {
   return (
     <div className="py-20 max-w-7xl mx-auto">
       <SectionTitle title="Our Products" />
-      <div className="flex justify-between pb-10">
+      <div className="flex flex-col lg:flex-row justify-between pb-10 px-5 lg:px-0">
         <div className="space-x-3">
         <input
           type="text"
@@ -92,9 +92,8 @@ const Products = () => {
           onChange={handleSearchChange}
           className="w-[320px] h-12 leading-6 px-4 border border-secondaryColor rounded focus-visible:outline-none"
         />
-        <Button title="search" />
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col lg:flex-row gap-4 pt-2 lg:pt-0">
           <select
             onChange={handleSortChange}
             value={query.sort}
@@ -130,7 +129,7 @@ const Products = () => {
           No products found!!
         </div>
       ) : (
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 px-5 lg:px-0">
           {products?.map((product: TUpdateProps, index: number) => (
             <ProductCard product={product} key={index} />
           ))}

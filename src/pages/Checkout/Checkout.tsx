@@ -83,7 +83,7 @@ const Checkout = () => {
       <SectionTitle title="Shipping details" />
       <div className="">
         <div className="flex flex-col lg:flex-row gap-4">
-          <div className="text-center lg:text-left w-1/2 flex flex-col gap-3">
+          <div className="text-center lg:text-left lg:w-1/2 flex flex-col gap-3">
             <h1 className="text-3xl font-bold">Order Details</h1>
             <ul className="flex flex-col gap-2">
               {products?.map((product, index: number) => (
@@ -91,7 +91,7 @@ const Checkout = () => {
                   <p className="mt-2 text-secondaryColor font-semibold">
                     {product.name}
                   </p>
-                  <div className="flex gap-2">
+                  <div className="flex justify-center lg:justify-start gap-2">
                     <p className="mt-2 font-semibold">
                       Order quantity: {product.orderQuantity}
                     </p>
@@ -116,7 +116,7 @@ const Checkout = () => {
               </h1>
             </div>
           </div>
-          <div className="card shadow-2xl w-1/2">
+          <div className="card shadow-2xl lg:w-1/2">
             <h1 className="text-3xl font-bold text-center pb-5">
               Billing Details
             </h1>

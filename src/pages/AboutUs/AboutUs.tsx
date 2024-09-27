@@ -16,15 +16,15 @@ const AboutUs = () => {
         </p>
       </div>
 
-      <div className="hero pt-40 pb-20">
+      <div className="hero pt-20 lg:pt-40 lg:pb-20">
       <div className="hero-content flex-col lg:flex-row lg:gap-10">
-        <div className="w-1/2">
+        <div className="lg:w-1/2">
         <img
           src="https://i.ibb.co.com/CmCYqmQ/hhkb-hybrid-type-s.jpg"
           className="rounded-lg"
         />
         </div>
-        <div className="w-1/2">
+        <div className="lg:w-1/2">
           <p className="leading-8 text-lg text-justify">
           We are passionate about providing top-quality mechanical keyboards tailored to your needs. Our products are crafted with precision, offering durability, customizability, and a premium typing experience. Whether you're a gamer, writer, or tech enthusiast, we have the perfect keyboard for you. We prioritize customer satisfaction by offering exceptional support, fast shipping, and a wide variety of switch options. Our keyboards are designed to enhance productivity and comfort while ensuring style and performance. Choose us for reliable, high-quality mechanical keyboards that elevate your experience to the next level.
           </p>

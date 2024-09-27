@@ -15,9 +15,9 @@ const Featured = () => {
   }
 
   return (
-    <div className="pb-40 max-w-7xl mx-auto">
+    <div className="pb-20 lg:pb-40 max-w-7xl mx-auto">
       <SectionTitle title="Featured Products" />
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 px-5 lg:px-0">
         {allProducts?.map((product: TUpdateProps, index: number) => (
           <FeaturedCard product={product} key={index} />
         ))}

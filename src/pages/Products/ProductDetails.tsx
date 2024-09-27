@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-import SectionTitle from "../Home/SectionTitle";
 import Rating from "../../components/ui/Rating";
 import { addToCart } from "../../redux/features/slices/cartSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -29,10 +28,9 @@ const ProductDetails = () => {
   const outOfStock = product.quantity <= 0;
 
   return (
-    <div className="max-w-7xl mx-auto py-20">
-      <SectionTitle title={product.name} />
-      <div className="flex gap-10 pb-10">
-        <div className="w-1/2">
+    <div className="max-w-7xl mx-auto py-20 px-5 lg:px-0">
+      <div className="flex flex-col lg:flex-row gap-10 pb-10">
+        <div className="lg:w-1/2">
           <img src={product.image} alt={product.name} />
         </div>
         <div className="w-1/2 space-y-5 px-10">

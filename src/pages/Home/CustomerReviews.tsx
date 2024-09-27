@@ -4,7 +4,7 @@ import AwesomeTestimonial from "react-awesome-testimonials";
 
 const CustomerReviews = () => {
   return (
-    <div className="pb-40 max-w-7xl mx-auto">
+    <div className="pb-20 lg:pb-40 max-w-7xl mx-auto">
       <SectionTitle title="Customer Reviews" />
       <AwesomeTestimonial testimonials={reviews} />
     </div>

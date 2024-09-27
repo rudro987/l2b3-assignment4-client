@@ -9,7 +9,7 @@ const Cart = () => {
 
   return (
     <div className="container mt-20 mx-auto">
-      <div className="flex lg:flex-row flex-col-reverse justify-around pb-60">
+      <div className="flex lg:flex-row flex-col-reverse justify-around px-5 lg:px-0 pb-20 lg:pb-60">
         <div className="space-y-5 lg:mt-0 mt-5">
           {products.length ? (
             products.map((product: any, index: number) => (

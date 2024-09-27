@@ -12,10 +12,10 @@ const Banner = () => {
           }}
         >
           <div className="hero-overlay bg-opacity-70"></div>
-          <div className="">
+          <div className="px-10 lg:px-0">
             <div className="max-w-7xl">
-              <h1 className="mb-5 text-7xl font-bold text-primaryFont">Welcome!</h1>
-              <p className="mb-5 max-w-lg text-white leading-8 text-lg">
+              <h1 className="mb-5 text-5xl lg:text-7xl font-bold text-primaryFont">Welcome!</h1>
+              <p className="mb-5 max-w-lg text-white leading-8 text-base lg:text-lg">
               Unlike membrane keyboards, where pressing a key pushes down on a single keyboard-sized membrane to complete a circuit, mechanical keyboards use individual mechanical switches for each key. Shop from a wide variety of sizes, switch types, keycaps, brands, and more to customize your gaming and typing experience.
               </p>
               <Button title="all products" />
