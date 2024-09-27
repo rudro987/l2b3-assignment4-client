@@ -7,6 +7,7 @@ const Banner = () => {
           style={{
             backgroundImage:
               "url(https://i.ibb.co.com/LnykCX2/compactmechanicalkeyboards-2048px-1749-2x1-1.webp)",
+              backgroundAttachment: "fixed",
             backgroundPositionY: "top",
           }}
         >

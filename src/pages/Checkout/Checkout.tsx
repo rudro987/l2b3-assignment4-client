@@ -15,7 +15,7 @@ export type TBillingProps = {
   email: string;
   phoneNumber: string;
   address: string;
-  paymentMethod: string
+  paymentMethod: string;
 };
 
 const Checkout = () => {
@@ -34,10 +34,9 @@ const Checkout = () => {
   } = useForm<TBillingProps>();
 
   const onSubmit: SubmitHandler<TBillingProps> = async (data) => {
-    
+    console.log(data);
     const toastId = toast.loading("Completing your oder!");
     try {
-
       const updateRequests = products.map((product) =>
         updateProduct({
           id: product._id,
@@ -49,31 +48,30 @@ const Checkout = () => {
 
       await Promise.all(updateRequests);
 
-      console.log(updateRequests);
-      
-      
-
       const productData = {
         name: data.name,
         email: data.email,
         phoneNumber: data.phoneNumber,
         address: data.address,
-        paymentMethod: data.paymentMethod
+        paymentMethod: data.paymentMethod,
       };
-      
-      
 
-      if(productData.paymentMethod === 'Cash On Delivery'){
+      if (productData.paymentMethod === "Stripe") {
         dispatch(clearCart());
-        navigate('/success');
+        navigate("/success");
+        toast.success("Order Completed!", { id: toastId, duration: 2000 });
+        reset();
+        return;
+      } else if (productData.paymentMethod === "Cash On Delivery") {
+        dispatch(clearCart());
+        navigate("/success");
+        toast.success("Order Completed!", { id: toastId, duration: 2000 });
+        reset();
       }
 
-      toast.success("Order Completed!", { id: toastId, duration: 2000 });
-
-      reset();
     } catch (err: any) {
       console.log(err);
-      toast.error('Something went wrong. Please try again!', {
+      toast.error("Something went wrong. Please try again!", {
         id: toastId,
         duration: 5000,
       });
@@ -124,7 +122,7 @@ const Checkout = () => {
             </h1>
             <form className="card-body pb-10" onSubmit={handleSubmit(onSubmit)}>
               <Input
-               type="text"
+                type="text"
                 label="Name"
                 placeholder="Full Name"
                 name="name"
@@ -136,7 +134,7 @@ const Checkout = () => {
               )}
 
               <Input
-               type="text"
+                type="text"
                 label="Email"
                 placeholder="Your Email Address"
                 name="email"
@@ -148,7 +146,7 @@ const Checkout = () => {
               )}
 
               <Input
-               type="text"
+                type="text"
                 label="Contact Number"
                 placeholder="Your phone number"
                 name="phoneNumber"
@@ -160,7 +158,7 @@ const Checkout = () => {
               )}
 
               <Input
-               type="text"
+                type="text"
                 label="Address"
                 placeholder="Your full address"
                 name="address"
@@ -172,7 +170,7 @@ const Checkout = () => {
               )}
 
               <div>
-              <InputSelect name="paymentMethod" register={register} />
+                <InputSelect name="paymentMethod" register={register} />
               </div>
 
               <div className="form-control mt-6">
