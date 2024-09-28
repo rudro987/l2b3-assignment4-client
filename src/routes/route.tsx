@@ -4,7 +4,7 @@ import { routesGenerator } from "../utils/routesGenerator";
 import { allPaths } from "./allPaths";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,

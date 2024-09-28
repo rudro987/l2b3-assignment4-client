@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { useGetAllProductsQuery } from "../../redux/features/getAllProductsApi";
 import SectionTitle from "../Home/SectionTitle";
