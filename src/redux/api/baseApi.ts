@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: 'https://ctrl-shift-esc-server.vercel.app/api/v1'
+    baseUrl: `${import.meta.env.VITE_API_URL}/api/v1`
 })
 
 export const baseApi = createApi({
